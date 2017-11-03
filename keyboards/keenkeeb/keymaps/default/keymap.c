@@ -13,8 +13,8 @@
 
 typedef enum {
     _BASE = 0,
-    _FN,
-    _MEDIA
+    _MEDIA,
+    _FN
 } __LAYERS;
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -28,14 +28,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   { KC_LCTL, KC_LGUI, XXXXXXX, KC_LALT, XXXXXXX, XXXXXXX, MO(_FN), XXXXXXX, KC_SPC,  KC_RALT, KC_RGUI, KC_APP,  KC_RCTL },
  },
  
- [_FN] = {
-  { KC_ESC,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12  },
-  { KC_INS,  XXXXXXX, RGB_HUI, RGB_SAI, RGB_VAI, RGB_TOG, XXXXXXX, XXXXXXX, KC_PGUP, KC_UP,   KC_PGDN, XXXXXXX, KC_PSCR },
-  { KC_DEL,  XXXXXXX, RGB_HUD, RGB_SAD, RGB_VAD, RGB_MOD, XXXXXXX, KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,  KC_SLCK },
-  { _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_LBRC, KC_RBRC, XXXXXXX, KC_CAPS },
-  { _______, _______, XXXXXXX, _______, XXXXXXX, XXXXXXX, _______, XXXXXXX, KC_ENT,  _______, _______, XXXXXXX, _______ },
- },
- 
  /*
  [_MEDIA] = {
   { _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______, KC_MUTE, KC_VOLD, KC_VOLU },
@@ -45,6 +37,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   { _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______, _______, _______, _______ },
  },
   */
+ 
+ [_FN] = {
+  { KC_ESC,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12  },
+  { KC_PSCR, XXXXXXX, RGB_HUI, RGB_SAI, RGB_VAI, RGB_TOG, XXXXXXX, XXXXXXX, KC_PGUP, KC_UP,   KC_PGDN, XXXXXXX, KC_SLCK },
+  { KC_DEL , XXXXXXX, RGB_HUD, RGB_SAD, RGB_VAD, RGB_MOD, XXXXXXX, KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,  KC_INS  },
+  { _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_LBRC, KC_RBRC, XXXXXXX, KC_CAPS },
+  { _______, _______, XXXXXXX, _______, XXXXXXX, XXXXXXX, _______, XXXXXXX, KC_ENT,  _______, _______, XXXXXXX, _______ },
+ },
      
 };
 
@@ -57,5 +57,5 @@ const uint16_t PROGMEM fn_actions[] = {
  **********************************************************************/
 
 const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
-    
+    return MACRO_NONE;    
 };
